@@ -108,7 +108,7 @@ async def start_command(client: Client, message: Message):
         )
         return
         await asyncio.sleep(10)
-        await messages.delete()
+        await msg.delete()
     
 #=====================================================================================##
 
