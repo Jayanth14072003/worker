@@ -81,9 +81,8 @@ async def start_command(client: Client, message: Message):
                 na = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
                 await asyncio.sleep(0.5)
                 naa = await na.reply_text(f"<b>Here is your link</b>", quote=True, reply_markup=reply_markup)
-               
                 await na.delete()
-                 await asyncio.sleep(50)
+                await asyncio.sleep(50)
                 await naa.delete(50)
                 
                 
@@ -92,7 +91,7 @@ async def start_command(client: Client, message: Message):
                 na = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
                 await na.reply_text(f"<b>Here is your link</b>", quote=True, reply_markup=reply_markup)
                 await na.delete()
-                 await asyncio.sleep(0.5)
+                await asyncio.sleep(50)
                 await naa.delete(50)
             except:
                 pass
