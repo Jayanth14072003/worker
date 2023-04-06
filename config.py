@@ -25,7 +25,7 @@ CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1001693231644"))
 OWNER_ID = int(os.environ.get("OWNER_ID", "1061576483"))
 
 #shortenr
-API = environ.get('API','eedc409c6457b8c783019e990dde8fd531b58eca'))
+API = environ.get('API','eedc409c6457b8c783019e990dde8fd531b58eca')
 
 #Port
 PORT = os.environ.get("PORT", "8080")
