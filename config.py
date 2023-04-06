@@ -2,7 +2,7 @@
 
 
 
-
+import os getenv
 import os
 import logging
 from logging.handlers import RotatingFileHandler
@@ -23,6 +23,9 @@ CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1001693231644"))
 
 #OWNER ID
 OWNER_ID = int(os.environ.get("OWNER_ID", "1061576483"))
+
+#shortenr
+API = str(getenv('API'))
 
 #Port
 PORT = os.environ.get("PORT", "8080")
