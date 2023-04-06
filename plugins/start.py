@@ -63,6 +63,7 @@ async def start_command(client: Client, message: Message):
             await message.reply_text("Something went wrong..!")
             return
         await temp_msg.delete()
+        await asyncio.sleep(15)
         for msg in messages:
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
