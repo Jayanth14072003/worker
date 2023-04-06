@@ -63,26 +63,28 @@ async def start_command(client: Client, message: Message):
             await message.reply_text("Something went wrong..!")
             return
         await temp_msg.delete()
-        await asyncio.messages.sleep(15)
+       
+        
         for msg in messages:
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(previouscaption = "" if not msg.caption else msg.caption.html, filename = msg.document.file_name)
             else:
                 caption = "" if not msg.caption else msg.caption.html
-
+                
             if DISABLE_CHANNEL_BUTTON:
                 reply_markup = msg.reply_markup
             else:
                 reply_markup = None
 
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                na = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
                 await asyncio.sleep(0.5)
+                await na.delete(5)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                
+                na = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                await na.delete(5)
             except:
                 pass
         return
@@ -108,9 +110,6 @@ async def start_command(client: Client, message: Message):
             quote = True
         )
         return
-        await asyncio.sleep(3.5)
-        await msg.delete()
-    
 #=====================================================================================##
 
 WAIT_MSG = """"<b>Processing ...</b>"""
