@@ -2,7 +2,7 @@
 
 
 
-import os environ
+from os import environ
 import os
 import logging
 from logging.handlers import RotatingFileHandler
