@@ -107,7 +107,7 @@ async def start_command(client: Client, message: Message):
             quote = True
         )
         return
-        await asyncio.sleep(10)
+        await asyncio.sleep(3.5)
         await msg.delete()
     
 #=====================================================================================##
