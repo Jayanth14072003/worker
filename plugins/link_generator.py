@@ -8,6 +8,7 @@ from helper_func import encode, get_message_id
 import requests
 import random
 import string
+from start_command import media
 
 def generate_random_alphanumeric():
     """Generate a random 8-letter alphanumeric string."""
@@ -54,7 +55,7 @@ async def batch(client: Client, message: Message):
     link = f"https://telegram.dog/{client.username}?start={base64_string}"
     slink = get_short(link)
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
-    await second_message.reply_text(f"<b>Here is your link</b>\n\n{link}\nTG link\n<code>{link}</code>\nShort Link\n<code>{slink}</code>", quote=True, reply_markup=reply_markup)
+    await second_message.reply_text(f"<b> File name -> {media.file_name}\n\nHere is your link</b>\n\n{link}\nTG link\n<code>{link}</code>\nShort Link\n<code>{slink}</code>", quote=True, reply_markup=reply_markup)
 
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('genlink'))
