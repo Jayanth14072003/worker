@@ -1,13 +1,8 @@
 #(©)CodeXBotz
-
-
-
 from os import environ
 import os
 import logging
 from logging.handlers import RotatingFileHandler
-
-
 
 #Bot token @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "5119722771:AAEZdtiK7fc4rf6oD7vUDFf3nTDbaa76ZWU")
@@ -52,7 +47,11 @@ except ValueError:
 FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hello {first}\n\n<b>You need to join in my Channel/Group to use me\n\nKindly Please join Channel</b>")
 
 #set your Custom Caption here, Keep None for Disable Custom Caption
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b><code>{filename}</code> \n𝐉𝐨𝐢𝐧 -> <a href="https://telegram.dog/drop_serials">𝐂𝐡𝐚𝐧𝐧𝐞𝐥<a></b>")
+
+#shortner
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'omegalinks.in')
+SHORTLINK_API = environ.get('SHORTLINK_API', '0af17d003ce7020eb85d2a54fe0f6ef50e770e40')
 
 #set True if you want to prevent users from forwarding files from bot
 PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False
