@@ -1,8 +1,5 @@
 #(©)CodeXBotz
 
-
-
-
 import os
 import asyncio
 from pyrogram import Client, filters, __version__
@@ -14,9 +11,6 @@ from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT
 from helper_func import subscribed, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
-
-
-
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
@@ -67,8 +61,9 @@ async def start_command(client: Client, message: Message):
         
         for msg in messages:
 
-            if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(previouscaption = "" if not msg.caption else msg.caption.html, filename = msg.document.file_name)
+            if bool(CUSTOM_CAPTION) & (bool(msg.document) or bool(msg.video)):
+                media = msg.video or msg.document
+                caption = CUSTOM_CAPTION.format(previouscaption = "" if not msg.caption else msg.caption.html, filename = media.file_name)
             else:
                 caption = "" if not msg.caption else msg.caption.html
                 
